@@ -90,7 +90,7 @@ frame.InputChanged:Connect(function(input)
 	posBox.Size = UDim2.new(0, 220, 0, 30) 
 	posBox.Position = UDim2.new(0, 10, 0, 50) 
 	posBox.PlaceholderText = "X, Y, Z" 
-	posBox.Text = "108, 3, 64" 
+	posBox.Text = "" 
 	posBox.Parent = frame
 
 	local copyButton = Instance.new("TextButton") 
