@@ -8,11 +8,25 @@ gui.ResetOnSpawn = false
 gui.Parent = player:WaitForChild("PlayerGui")
 
 local frame = Instance.new("Frame") 
-frame.Size = UDim2.new(0, 240, 0, 640) 
+frame.Size = UDim2.new(0, 240, 0, 680) 
 frame.Position = UDim2.new(0, 20, 0, 20) 
 frame.BackgroundColor3 = Color3.fromRGB(19, 134, 61) 
 frame.BorderSizePixel = 0 
 frame.Parent = gui
+local titleBar = Instance.new("TextLabel")
+titleBar.Size = UDim2.new(1, 0, 0, 30)
+titleBar.Position = UDim2.new(0, 0, 0, 0)
+titleBar.BackgroundColor3 = Color3.fromRGB(10, 90, 40)
+titleBar.BorderSizePixel = 0
+titleBar.Text = "Grow Anything Script"
+titleBar.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleBar.Font = Enum.Font.GothamBold
+titleBar.TextScaled = true
+titleBar.Parent = frame
+
+local titleStroke = Instance.new("UIStroke")
+titleStroke.Thickness = 1
+titleStroke.Parent = titleBar
 
 -- dragging (unchanged) 
 local dragging = false 
@@ -82,26 +96,26 @@ frame.InputChanged:Connect(function(input)
 		-- UI 
 		local tpButton = Instance.new("TextButton") 
 		tpButton.Size = UDim2.new(0, 220, 0, 35) 
-		tpButton.Position = UDim2.new(0, 10, 0, 10) 
+		tpButton.Position = UDim2.new(0, 10, 0, 40) 
 		tpButton.Text = "Teleport To Pos" 
 		tpButton.Parent = frame
 
 	local posBox = Instance.new("TextBox") 
 	posBox.Size = UDim2.new(0, 220, 0, 30) 
-	posBox.Position = UDim2.new(0, 10, 0, 50) 
+	posBox.Position = UDim2.new(0, 10, 0, 80) 
 	posBox.PlaceholderText = "X, Y, Z" 
 	posBox.Text = "" 
 	posBox.Parent = frame
 
 	local copyButton = Instance.new("TextButton") 
 	copyButton.Size = UDim2.new(0, 220, 0, 35) 
-	copyButton.Position = UDim2.new(0, 10, 0, 90) 
+	copyButton.Position = UDim2.new(0, 10, 0, 120) 
 	copyButton.Text = "Copy Current Position" 
 	copyButton.Parent = frame
 
 	local posLabel = Instance.new("TextLabel") 
 	posLabel.Size = UDim2.new(0, 220, 0, 30) 
-	posLabel.Position = UDim2.new(0, 10, 0, 130) 
+	posLabel.Position = UDim2.new(0, 10, 0, 160) 
 	posLabel.BackgroundTransparency = 1 
 	posLabel.TextColor3 = Color3.new(6, 192, 74) 
 	posLabel.Text = "Position: Loading..." 
@@ -109,14 +123,14 @@ frame.InputChanged:Connect(function(input)
 
 	local speedBox = Instance.new("TextBox") 
 	speedBox.Size = UDim2.new(0, 220, 0, 30) 
-	speedBox.Position = UDim2.new(0, 10, 0, 170) 
+	speedBox.Position = UDim2.new(0, 10, 0, 200) 
 	speedBox.Text = "16" 
 	speedBox.PlaceholderText = "WalkSpeed" 
 	speedBox.Parent = frame
 
 	local speedButton = Instance.new("TextButton") 
 	speedButton.Size = UDim2.new(0, 220, 0, 35) 
-	speedButton.Position = UDim2.new(0, 10, 0, 210) 
+	speedButton.Position = UDim2.new(0, 10, 0, 240) 
 	speedButton.Text = "Set Speed" 
 	speedButton.Parent = frame
 
@@ -133,7 +147,7 @@ frame.InputChanged:Connect(function(input)
 
 	local creditsButton = Instance.new("TextButton")
 creditsButton.Size = UDim2.new(0, 220, 0, 35)
-creditsButton.Position = UDim2.new(0, 10, 0, 570) -- adjust if needed
+creditsButton.Position = UDim2.new(0, 10, 0, 600) -- adjust if needed
 creditsButton.Text = "Credits"
 creditsButton.Parent = frame
 local creditsFrame = Instance.new("Frame")
@@ -169,14 +183,14 @@ end)
 
 local jumpBox = Instance.new("TextBox")
 jumpBox.Size = UDim2.new(0, 220, 0, 30)
-jumpBox.Position = UDim2.new(0, 10, 0, 250)
+jumpBox.Position = UDim2.new(0, 10, 0, 280)
 jumpBox.Text = "50"
 jumpBox.PlaceholderText = "JumpPower"
 jumpBox.Parent = frame
 
 local jumpButton = Instance.new("TextButton")
 jumpButton.Size = UDim2.new(0, 220, 0, 35)
-jumpButton.Position = UDim2.new(0, 10, 0, 290)
+jumpButton.Position = UDim2.new(0, 10, 0, 320)
 jumpButton.Text = "Set Jump Power"
 jumpButton.Parent = frame
 jumpButton.MouseButton1Click:Connect(function()
@@ -192,7 +206,7 @@ end)
 
 local iyButton = Instance.new("TextButton")
 iyButton.Size = UDim2.new(0, 220, 0, 35)
-iyButton.Position = UDim2.new(0, 10, 0, 530) -- adjust as needed
+iyButton.Position = UDim2.new(0, 10, 0, 560) -- adjust as needed
 iyButton.Text = "Open Infinite Yield"
 iyButton.Parent = frame
 iyButton.MouseButton1Click:Connect(function()
@@ -254,7 +268,7 @@ end)
 
 		local sharkButton = Instance.new("TextButton") 
 		sharkButton.Size = UDim2.new(0, 220, 0, 35) 
-		sharkButton.Position = UDim2.new(0, 10, 0, 450) -- adjust if needed 
+		sharkButton.Position = UDim2.new(0, 10, 0, 480) -- adjust if needed 
 		sharkButton.Text = "Event Completion Request" 
 		sharkButton.Parent = frame
 
@@ -271,7 +285,7 @@ end)
 
 		local petButton = Instance.new("TextButton")
 petButton.Size = UDim2.new(0, 220, 0, 35)
-petButton.Position = UDim2.new(0, 10, 0, 490) -- adjust if needed
+petButton.Position = UDim2.new(0, 10, 0, 520) -- adjust if needed
 petButton.Text = "Teleport To Pet"
 petButton.Parent = frame
 
@@ -294,7 +308,7 @@ end)
 
 	local autoSellButton = Instance.new("TextButton") 
 	autoSellButton.Size = UDim2.new(0, 220, 0, 35) 
-	autoSellButton.Position = UDim2.new(0, 10, 0, 330) 
+	autoSellButton.Position = UDim2.new(0, 10, 0, 360) 
 	autoSellButton.Text = "Auto Sell: OFF" 
 	autoSellButton.Parent = frame
 
@@ -317,7 +331,7 @@ end)
 	local flyEnabled = false 
 	local flyButton = Instance.new("TextButton") 
 	flyButton.Size = UDim2.new(0, 220, 0, 35) 
-	flyButton.Position = UDim2.new(0, 10, 0, 370) 
+	flyButton.Position = UDim2.new(0, 10, 0, 400) 
 	flyButton.Text = "Fly: OFF" 
 	flyButton.Parent = frame 
 	local UserInputService = game:GetService("UserInputService") 
@@ -412,8 +426,8 @@ end)
 
 		local destroyButton = Instance.new("TextButton") 
 		destroyButton.Size = UDim2.new(0, 220, 0, 35) 
-		destroyButton.Position = UDim2.new(0, 10, 0, 410) 
-		destroyButton.Text = "Exit Cheat" 
+		destroyButton.Position = UDim2.new(0, 10, 0, 440) 
+		destroyButton.Text = "!!Exit Cheat!!" 
 		destroyButton.Parent = frame 
 		destroyButton.MouseButton1Click:Connect(function() 
 		-- disable toggles so loops stop cleanly 
